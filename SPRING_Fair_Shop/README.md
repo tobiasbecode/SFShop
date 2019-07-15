@@ -136,7 +136,7 @@ Das Frontend basiert auf Angular und dem Bootstrap Framework (3.4.1).
 
 ##### 1.2.8 Authentifizierung
 
-Die Authentifizierung mit OAuth2 orientiert sich an dem (quelloffenen) best practice Beispiel von viadee. 
+Die Authentifizierung mit OAuth2 orientiert sich an dem (quelloffenen) best practice von viadee. 
 
 Siehe hier: https://github.com/viadee/DeicheFuerDieInseln
 
