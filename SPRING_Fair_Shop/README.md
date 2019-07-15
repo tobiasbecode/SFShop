@@ -12,7 +12,7 @@ Das Frontend basiert auf Angular und dem Bootstrap Framework (3.4.1).
 
 
 
-![Ueberblick_SFShop-Page-2](Ueberblick_SFShop-Page-2.jpg)
+![Ueberblick_SFShop-Page-2](Ueberblick_SFShop-Page-2(1).jpg)
 
 
 
