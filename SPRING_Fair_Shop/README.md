@@ -2,7 +2,7 @@
 
 *Ein Beispielprojekt für einen E-Commerce-Shop*
 
-
+Live-Demo: http://fair-kaufen.info
 
 ## Aufbau und Struktur
 
