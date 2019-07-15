@@ -1,0 +1,132 @@
+<div class="container-fluid">
+  <app-overview></app-overview>
+
+  <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+
+  <div class="row" *ngIf="isAuthenticated && !addressIsFound && !isLoading">
+    <form [formGroup]="addressForm" (ngSubmit)="onSubmit()">
+      <div class="col-xs-6 col-md-4">
+        <h4>Adresseingabe</h4>
+        <div class="form-group">
+          <label for="addressName">Name</label>
+          <input
+            type="text"
+            id="addressName"
+            class="form-control"
+            formControlName="addressName"
+     
+          />
+          <span
+          *ngIf="!addressForm.get('addressName').valid 
+          && addressForm.get('addressName').touched"
+          class="help-block">Bitte einen Namen eingeben</span>
+    
+        </div>
+
+        <div class="form-group">
+          <label for="addressStreet">Straße</label>
+          <input
+            type="text"
+            id="addressStreet"
+            class="form-control"
+            formControlName="addressStreet"
+          />
+        </div>
+        <span
+        *ngIf="!addressForm.get('addressStreet').valid 
+        && addressForm.get('addressStreet').touched"
+        class="help-block">Bitte eine Straße eingeben</span>
+
+        <div class="form-group">
+          <label for="addressPLZ">PLZ</label>
+          <input
+            type="text"
+            id="addressPLZ"
+            class="form-control"
+            formControlName="addressPLZ"
+          />
+        </div>
+
+        <span
+        *ngIf="!addressForm.get('addressPLZ').valid 
+        && addressForm.get('addressPLZ').touched"
+        class="help-block">Bitte eine PLZ eingeben</span>
+
+        <div class="form-group">
+          <label for="addressCity">Stadt</label>
+          <input
+            type="text"
+            id="addressCity"
+            class="form-control"
+            formControlName="addressCity"
+          />
+        </div>
+        <span
+        *ngIf="!addressForm.get('addressCity').valid 
+        && addressForm.get('addressCity').touched"
+        class="help-block">Bitte eine Stadt eingeben</span>
+
+        <div class="form-group">
+          <label for="addressCountry">Land</label>
+          <input
+            type="text"
+            id="addressCountry"
+            class="form-control"
+            formControlName="addressCountry"
+          />
+        </div>
+
+        <span
+        *ngIf="!addressForm.get('addressCountry').valid 
+        && addressForm.get('addressCountry').touched"
+        class="help-block">Bitte ein Land eingeben</span>
+
+        <div class="form-group">
+          <label for="addressMail">E-Mail</label>
+          <input
+            type="text"
+            id="addressMail"
+            class="form-control"
+            formControlName="addressMail"
+          />
+        </div>
+        <span
+        *ngIf="!addressForm.get('addressMail').valid 
+        && addressForm.get('addressMail').touched"
+        class="help-block">Bitte eine Mailadresse eingeben</span>
+
+        <div class="form-group" *ngIf="isHidden">
+          <label for="username">username</label>
+          <input
+            type="text"
+            id="username"
+            class="form-control"
+            formControlName="username"
+            value="username"
+          />
+        </div>
+      </div>
+      
+      <div class="col-xs-6 col-md-4">
+        <div class="form-group">
+          <button
+            class="btn btn-primary"
+            (click)="onSendAddress()"
+            type="submit"
+          >
+            Senden
+          </button>
+        </div>
+        <span
+        *ngIf="!addressForm.valid 
+        && addressForm.touched"
+        class="help-block">Bitte das Formular vollständig ausfüllen</span>
+
+      </div>
+    </form>
+  </div>
+
+  <app-address *ngIf="isAuthenticated && addressIsFound"></app-address>
+
+</div>
+ 

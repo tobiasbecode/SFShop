@@ -1,0 +1,19 @@
+spring:
+  #App Name
+  application:
+    name: authorization
+
+#Server Port for Tomcat
+server:
+  port: 8283
+
+#Eureka
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-naming-server:8761/eureka/
+  instance:
+    hostname: oauth2
+
+
+

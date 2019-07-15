@@ -1,0 +1,23 @@
+<div class="container-fluid">
+    <div class="row">
+      <h3>Liefer- und Rechnungsadresse</h3>
+    <table mdbTable hover="true">
+        <thead>
+          <tr>
+            <th *ngFor="let headDe of headDelivery" scope="col">{{headDe}} </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr mdbTableCol *ngFor="let el of addressArrayToDisplay ">
+            <td>{{el.addressName}}</td>
+            <td>{{el.addressStreet}}</td>
+            <td>{{el.addressPLZ}}</td>
+            <td>{{el.addressCity}}</td>
+            <td>{{el.addressCountry}}</td>
+            
+          </tr>
+        </tbody>
+      </table>
+    </div> 
+  </div>
+  

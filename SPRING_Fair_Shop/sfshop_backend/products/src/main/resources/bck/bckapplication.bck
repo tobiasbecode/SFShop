@@ -1,0 +1,25 @@
+server:
+  port: 39080
+
+spring:
+  #App Name
+  application:
+    name: spring5shop-produkte
+
+  #Production JPA/Hibernate Settings
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+
+    #Hibernate Dialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL57Dialect
+
+  #Datasource Settings
+  datasource:
+    url: jdbc:mysql://mysql:3306/products?allowPublicKeyRetrieval=true&useSSL=false
+    username: products
+    password: myproduct
+

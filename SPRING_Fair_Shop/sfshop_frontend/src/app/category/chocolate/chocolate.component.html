@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+      <app-filter
+        (priceEmitMin)="priceMessageMin($event)"
+        (priceEmitMax)="priceMessageMax($event)"
+      >
+      </app-filter>
+    </div>
+    <div class="col-md-9">
+      <app-tn-item
+        *ngFor="
+          let productEl of productsArray
+            | priceMin: receivePriceMin
+            | priceMax: receivePriceMax
+        "
+        [product]="productEl"
+      >
+      </app-tn-item>
+    </div>
+  </div>
+</div>

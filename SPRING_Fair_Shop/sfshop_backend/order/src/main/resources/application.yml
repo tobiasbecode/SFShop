@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: oservice
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto:  create
+    show-sql: true
+
+  datasource:
+    url: jdbc:postgresql://postgres:5432/authentication
+    username: authenticateuser
+    password: mypass
+
+server:
+  port: 8000
+
+kafka:
+  server: kafka:9092
+
+security:
+  oauth2:
+    resource:
+      token-info-uri: http://oauth2:8283/oauth/check_token
+    client:
+      client-id: order
+      client-secret: test
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-naming-server:8761/eureka/
+  instance:
+    hostname: order
+

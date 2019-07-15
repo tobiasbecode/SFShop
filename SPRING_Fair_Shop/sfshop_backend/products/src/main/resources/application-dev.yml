@@ -1,0 +1,23 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+  profiles:
+    active: dev
+
+  datasource:
+    url: jdbc:mysql://127.0.0.1:30830/products?allowPublicKeyRetrieval=true&useSSL=false
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:30861/eureka/
+
+security:
+  oauth2:
+    resource:
+      token-info-uri: http://localhost:30828/oauth/check_token
+    client:
+      client-id: products
+      client-secret: test

@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eureka-naming-server
+  labels:
+    app: eureka-naming-server
+spec:
+  selector:
+    matchLabels:
+      app: eureka-naming-server
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: eureka-naming-server
+    spec:
+      containers:
+      - name: eureka-naming-server
+        image: tobiasbecode/sfshop-eureka
+        ports:
+          - containerPort: 8761
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: eureka-naming-server
+spec:
+  ports:
+    - name: eureka-naming-server
+      port: 8761
+      nodePort: 30861
+  selector:
+    app: eureka-naming-server
+  type: NodePort

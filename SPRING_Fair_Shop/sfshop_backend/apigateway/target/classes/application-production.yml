@@ -1,0 +1,55 @@
+spring:
+  application:
+    name: api-gateway
+  http:
+    log-request-details: true
+
+
+application:
+  oauth2:
+    client-id: api-gateway
+    client-secret: secret
+    access-token-uri: http://localhost:8283/oauth/token
+
+zuul:
+  sensitive-headers:
+    - Cookie
+    - Set-Cookie
+    - WWW-Authenticate
+  prefix: /api
+  routes:
+    pservice:
+      path: /products/**
+      serviceId: pservice
+    authorization:
+      path: /**
+      serviceId: authorization
+    rservice:
+      path: /ratings/**
+      serviceId: rservice
+    oservice:
+      path: /order/**
+      serviceId: oservice
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+server:
+  port: 8765
+
+logging:
+  level:
+    org:
+      springframework:
+        web:
+          servlet:
+            DispatcherServlet: debug
+      security: debug
+      cloud:
+        netflix:
+          zuul: debug
+    com:
+      netflix:
+        zuul: debug

@@ -1,0 +1,37 @@
+{
+  "groups": [
+    {
+      "name": "application.oauth2",
+      "type": "de.tobiasbecode.spring5shop.apigateway.oauth2.Oauth2PasswordAuthenticationProperties",
+      "sourceType": "de.tobiasbecode.spring5shop.apigateway.oauth2.Oauth2PasswordAuthenticationProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "application.oauth2.access-token-uri",
+      "type": "java.net.URI",
+      "sourceType": "de.tobiasbecode.spring5shop.apigateway.oauth2.Oauth2PasswordAuthenticationProperties"
+    },
+    {
+      "name": "application.oauth2.client-id",
+      "type": "java.lang.String",
+      "sourceType": "de.tobiasbecode.spring5shop.apigateway.oauth2.Oauth2PasswordAuthenticationProperties"
+    },
+    {
+      "name": "application.oauth2.client-secret",
+      "type": "java.lang.String",
+      "sourceType": "de.tobiasbecode.spring5shop.apigateway.oauth2.Oauth2PasswordAuthenticationProperties"
+    },
+    {
+      "name": "application.oauth2.token",
+      "type": "java.lang.String",
+      "sourceType": "de.tobiasbecode.spring5shop.apigateway.oauth2.Oauth2PasswordAuthenticationProperties"
+    },
+    {
+      "name": "application.oauth2.username",
+      "type": "java.lang.String",
+      "sourceType": "de.tobiasbecode.spring5shop.apigateway.oauth2.Oauth2PasswordAuthenticationProperties"
+    }
+  ],
+  "hints": []
+}

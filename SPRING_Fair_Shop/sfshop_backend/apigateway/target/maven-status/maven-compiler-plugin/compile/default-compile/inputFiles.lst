@@ -1,0 +1,8 @@
+/home/tobiasbe/Dokumente/Programmierung/Projekte/spring5-shop/apigateway/src/main/java/de/tobiasbecode/spring5shop/apigateway/ApiGateway.java
+/home/tobiasbe/Dokumente/Programmierung/Projekte/spring5-shop/apigateway/src/main/java/de/tobiasbecode/spring5shop/apigateway/logindto/LoginRequest.java
+/home/tobiasbe/Dokumente/Programmierung/Projekte/spring5-shop/apigateway/src/main/java/de/tobiasbecode/spring5shop/apigateway/filter/AuthorizationHeaderFilter.java
+/home/tobiasbe/Dokumente/Programmierung/Projekte/spring5-shop/apigateway/src/main/java/de/tobiasbecode/spring5shop/apigateway/oauth2/OAuth2PasswordAuthenticationProvider.java
+/home/tobiasbe/Dokumente/Programmierung/Projekte/spring5-shop/apigateway/src/main/java/de/tobiasbecode/spring5shop/apigateway/oauth2/Oauth2PasswordAuthenticationProperties.java
+/home/tobiasbe/Dokumente/Programmierung/Projekte/spring5-shop/apigateway/src/main/java/de/tobiasbecode/spring5shop/apigateway/filter/RequestBodyReaderAuthenticationFilter.java
+/home/tobiasbe/Dokumente/Programmierung/Projekte/spring5-shop/apigateway/src/main/java/de/tobiasbecode/spring5shop/apigateway/oauth2/OAuth2AccessTokenAuthentication.java
+/home/tobiasbe/Dokumente/Programmierung/Projekte/spring5-shop/apigateway/src/main/java/de/tobiasbecode/spring5shop/apigateway/configuration/SecurityConfiguration.java

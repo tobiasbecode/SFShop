@@ -1,0 +1,11 @@
+server:
+  port: 39081
+
+spring:
+  application:
+    name: spring5shop-rating
+  data:
+    mongodb:
+      database: spring5shop-rating-db
+
+

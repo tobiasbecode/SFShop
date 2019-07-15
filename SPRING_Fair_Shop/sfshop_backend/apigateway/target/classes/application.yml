@@ -1,0 +1,83 @@
+spring:
+  application:
+    name: api-gateway
+  http:
+    log-request-details: true
+
+
+application:
+  oauth2:
+    client-id: api-gateway
+    client-secret: secret
+    access-token-uri: http://oauth2:8283/oauth/token
+
+zuul:
+  sensitive-headers:
+    - Cookie
+    - Set-Cookie
+    - WWW-Authenticate
+  prefix: /api
+  routes:
+    pservice:
+      path: /products/**
+      serviceId: pservice
+    authorization:
+      path: /**
+      serviceId: authorization
+    rservice:
+      path: /ratings/**
+      serviceId: rservice
+    oservice:
+      path: /order/**
+      serviceId: oservice
+
+##Ribbon
+pservice:
+  ribbon:
+    listOfServers: "http://products:8755"
+    ReadTimeout: 60000
+oservice:
+  ribbon:
+    listOfServers: "http://order:8000"
+    ReadTimeout: 60000
+rservice:
+  ribbon:
+    listOfServers: "http://rating:8751"
+    ReadTimeout: 60000
+authorization:
+  ribbon:
+    listOfServers: "http://oauth2:8283"
+    ReadTimeout: 60000
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-naming-server:8761/eureka/
+    registerWithEureka: true
+    fetchRegistry: true
+
+server:
+  port: 8765
+
+logging:
+  level:
+    org:
+      springframework:
+        web:
+          servlet:
+            DispatcherServlet: debug
+      security: debug
+      cloud:
+        netflix:
+          zuul: debug
+    com:
+      netflix:
+        zuul: debug

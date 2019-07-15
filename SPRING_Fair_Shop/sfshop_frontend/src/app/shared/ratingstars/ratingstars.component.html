@@ -1,0 +1,55 @@
+<div class="rating">
+
+
+  <span *ngIf="ratingLevel > 0; else Show1">
+    ★
+  </span>
+
+  <ng-template #Show1>
+    <span>
+      ☆
+    </span>
+  </ng-template>
+
+  <span *ngIf="ratingLevel > 1; else Show1">
+    ★
+  </span>
+
+  <ng-template #Show1>
+    <span>
+      ☆
+    </span>
+  </ng-template>
+
+  <span *ngIf="ratingLevel > 2; else Show1">
+    ★
+  </span>
+
+  <ng-template #Show1>
+    <span>
+      ☆
+    </span>
+  </ng-template>
+
+  <span *ngIf="ratingLevel > 3; else Show1">
+    ★
+  </span>
+
+  <ng-template #Show1>
+    <span>
+      ☆
+    </span>
+  </ng-template>
+
+  <span *ngIf="ratingLevel > 4; else Show1">
+    ★
+  </span>
+
+  <ng-template #Show1>
+    <span>
+      ☆
+    </span>
+  </ng-template>
+
+
+</div>

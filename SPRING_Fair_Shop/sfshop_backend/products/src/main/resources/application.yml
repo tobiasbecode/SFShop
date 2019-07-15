@@ -1,0 +1,50 @@
+spring:
+#App Name
+  application:
+    name: pservice
+
+  #Production JPA/Hibernate Settings
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: false
+
+  #Hibernate Dialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL57Dialect
+  data:
+    rest:
+      basePath: /products
+
+  #Datasource Settings
+  datasource:
+    url: jdbc:mysql://mysql:3306/products?allowPublicKeyRetrieval=true&useSSL=false
+    username: products
+    password: myproduct
+
+#Kafka
+kafka:
+  server: kafka:9092
+  group: pservice
+
+#Server port - Tomcat
+server:
+  port: 8755
+
+#Oauth2
+security:
+  oauth2:
+    resource:
+      token-info-uri: http://oauth2:8283/oauth/check_token
+    client:
+      client-id: products
+      client-secret: test
+
+#Eureka
+eureka:
+  instance:
+    hostname: products
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-naming-server:8761/eureka/

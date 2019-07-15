@@ -1,0 +1,14 @@
+#Application name
+spring:
+  application:
+    name: eureka-naming-server
+
+#Server Port - Tomcat
+server:
+  port: 8761
+
+#Eureka
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false

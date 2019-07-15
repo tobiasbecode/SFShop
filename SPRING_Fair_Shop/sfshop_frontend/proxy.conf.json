@@ -1,0 +1,21 @@
+
+  {
+  "/api/*": {
+    "target": "http://127.0.0.1:30876/",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/login": {
+    "target": "http://127.0.0.1:30876/",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+    },
+    "/logout": {
+      "target": "http://127.0.0.1:30876/",
+      "secure": false,
+      "logLevel": "debug",
+      "changeOrigin": true
+      }
+  }

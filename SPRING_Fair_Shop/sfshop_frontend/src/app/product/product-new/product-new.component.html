@@ -1,0 +1,228 @@
+<div class="container-fluid">
+  <!-- Übersicht Produkte -->
+  <h3>Kurzübersicht: Alle Produkte</h3>
+  <table>
+    <thead>
+      <th>Name</th>
+      <th>Preis</th>
+      <th>Kategorie</th>
+      <th>Angebot</th>
+      <th>Versandkosten</th>
+      <th>Bestand</th>
+    </thead>
+ 
+    <tbody>
+      <tr *ngFor="let product of productListArray; let i = index" [attr.data-index]="i">
+        <td>{{ product.name }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.category }}</td>
+        <td>{{ product.offer }}</td>
+        <td>{{ product.shippingCosts }}</td>
+        <td>{{ product.inventory }}</td>
+        <td>
+          <button class="btn btn-danger" (click)=onDelete(i)>Produkt löschen</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <p style="margin-top:50px" > 
+  <button class="btn btn-primary" *ngIf="!addTrue" (click)=onAddProductTrue()>Produkt hinzufügen</button>
+</p>
+  <div class="col-md-8" *ngIf="!submitted && addTrue" style="margin-bottom: 30px">
+    <h3>Produkteingabe</h3>
+    <div class="row">
+      <form (ngSubmit)="onAddProduct(f)" #f="ngForm" *ngIf="!submitted">
+        <!-- Produktname -->
+        <div id="product" ngModelGroup="newProduct">
+          <div class="form-group">
+            <label for="name">Produktname</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Name"
+              id="name"
+              name="name"
+              ngModel
+              required
+              #name="ngModel"
+            />
+            <span class="help-block" *ngIf="!name.valid && name.touched"
+              >Bitte einen Namen eingeben</span
+            >
+          </div>
+ 
+          <!-- Preis -->
+          <div class="form-group">
+            <label for="price">Preis</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Preis"
+              id="price"
+              name="price"
+              ngModel
+              required
+              #price="ngModel"
+            />
+            <span class="help-block" *ngIf="!price.valid && price.touched"
+              >Bitte einen Preis eingeben (ohne Währungsangabe)</span
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="category">Kategorie</label>
+            <select
+              class="form-control"
+              placeholder="Kategorie"
+              id="category"
+              name="category"
+              ngModel
+              required
+              #category="ngModel"
+            >
+              <option>coffee</option>
+              <option>chocolate</option>
+              <option>tea</option>
+              <option>honey</option>
+            </select>
+
+            <span class="help-block" *ngIf="!category.valid && category.touched"
+              >Bitte wählen Sie eine Kategorie
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label for="description">Beschreibung</label>
+            <textarea
+              type="text"
+              class="form-control"
+              placeholder="Beschreibung"
+              id="description"
+              name="description"
+              ngModel
+              required
+              #description="ngModel"
+            ></textarea>
+          </div>
+          <span
+            class="help-block"
+            *ngIf="!description.valid && description.touched"
+            >Bitte geben Sie eine kurze Beschreibung ein.
+          </span>
+
+          <div class="form-group">
+            <label> Angebot </label>
+            <select
+              class="form-control"
+              name="offer"
+              placeholder="false"
+              id="offer"
+              ngModel
+              required
+              #offer="ngModel"
+            >
+              <option>true</option>
+              <option>false</option>
+            </select>
+
+            <span class="help-block" *ngIf="!offer.valid && offer.touched"
+              >Bitte wählen Sie ob das Produkt im Angebot ist oder nicht.
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label for="shippingCosts">Versandkosten</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Versandkosten"
+              id="shippingCosts"
+              name="shippingCosts"
+              ngModel
+              required
+              #shippingCosts="ngModel"
+            />
+          </div>
+          <span
+            class="help-block"
+            *ngIf="!shippingCosts.valid && shippingCosts.touched"
+            >Bitte geben Sie den Preis für die Versandkosten ein (ohne
+            Währungsangabe).
+          </span>
+
+          <div class="form-group">
+            <label for="inventory">Bestand</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Bestand"
+              id="inventory"
+              name="inventory"
+              ngModel
+              required
+              #inventory="ngModel"
+            />
+          </div>
+          <span class="help-block" *ngIf="!inventory.valid && inventory.touched"
+            >Bitte geben Sie eine Zahl für den Bestand/Produktmenge ein.</span
+          >
+
+          <div class="form-group">
+            <label for="imagePath">Direktlink zu Bild</label>
+            <p>Bitte geben Sie einen Direktlink zu einem Bild an (optional).</p>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Bildurl"
+              id="imagePath"
+              name="imagePath"
+              ngModel
+              #imagePath="ngModel"
+            />
+          </div>
+
+          <div class="row">
+            <div class="col-md-3" style="margin-top: 20px">
+              <button
+                class="btn btn-success"
+                type="submit"
+                [disabled]="!f.valid"
+              >
+                Hinzufügen
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+ 
+  <hr />
+  <div class="row" *ngIf="submitted">
+    <div class="col-xs-12">
+      <h3>
+        Übersicht: Eingegebene Daten
+      </h3>
+      <p>Name: {{ createdProduct.name }}</p>
+      <p>Preis: {{ createdProduct.price }}</p>
+      <p>Kategorie: {{ createdProduct.category }}</p>
+      <p>Beschreibung: {{ createdProduct.description }}</p>
+      <p>Angebot: {{ createdProduct.offer }}</p>
+      <p>Versandkosten: {{ createdProduct.shippingCosts }}</p>
+      <p>Bestand: {{ createdProduct.inventory }}</p>
+      <p>Bildurl: {{ createdProduct.imagePath }}</p>
+    </div>
+  </div>
+
+  <div class="col-md-3" style="margin-top: 20px" *ngIf="submitted">
+    <button class="btn btn-success" (click)="addProduct()">
+      Speichern in Datenbank
+    </button>
+
+    <p></p>
+    <button class="btn btn-primary" (click)="back()" style="margin-bottom:20px">
+      Zurück
+    </button>
+  </div>
+</div>

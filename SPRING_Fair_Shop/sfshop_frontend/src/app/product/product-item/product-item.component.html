@@ -1,0 +1,54 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-6 col-md-4">
+      <div class="thumbnail">
+        <img
+          *ngIf="productWithId"
+          src="{{ productWithId.imagePath }}"
+          alt="Bild"
+        />
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-md-8">
+      <h2 *ngIf="productWithId">{{ productWithId.name }}</h2>
+      <app-ratingstars></app-ratingstars>
+      <p></p>
+      <p *ngIf="productWithId">
+        {{ productWithId.description }}
+      </p>
+      <div class="row">
+        <form [formGroup]="amountForm" (ngSubmit)="onSubmit()">
+          <div class="col-xs-6 col-md-4">
+            <div class="form-group">
+              <label for="amountinput">Menge</label>
+              <input
+                type="text"
+                id="amountinput"
+                class="form-control"
+                formControlName="amountinput"
+              />
+            </div>
+          </div>
+
+          <div class="col-xs-6 col-md-4">
+            <div class="form-group">
+              <p *ngIf="productWithId">Preis {{ productWithId.price }} €
+                  &nbsp; <span class="badge badge-pill badge-danger" *ngIf="offerCheck">Angebot</span>
+              </p>
+              <button class="btn btn-primary" type="submit">Kaufen</button>
+            </div>
+          </div>
+        </form>
+      </div>
+     
+    </div>
+  </div>
+  <p style="margin-bottom: 60px"></p>
+
+  <div class="container-fluid">
+   
+    <app-product-opinions></app-product-opinions>
+  </div>
+
+</div>

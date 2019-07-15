@@ -1,0 +1,8 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+
+  datasource:
+    url: jdbc:mysql://127.0.0.1:30830/products?allowPublicKeyRetrieval=true&useSSL=false

@@ -1,0 +1,9 @@
+de/tobiasbecode/spring5shop/apigateway/oauth2/OAuth2PasswordAuthenticationProvider.class
+META-INF/spring-configuration-metadata.json
+de/tobiasbecode/spring5shop/apigateway/logindto/LoginRequest.class
+de/tobiasbecode/spring5shop/apigateway/oauth2/OAuth2AccessTokenAuthentication.class
+de/tobiasbecode/spring5shop/apigateway/oauth2/Oauth2PasswordAuthenticationProperties.class
+de/tobiasbecode/spring5shop/apigateway/ApiGateway.class
+de/tobiasbecode/spring5shop/apigateway/filter/AuthorizationHeaderFilter.class
+de/tobiasbecode/spring5shop/apigateway/filter/RequestBodyReaderAuthenticationFilter.class
+de/tobiasbecode/spring5shop/apigateway/configuration/SecurityConfiguration.class

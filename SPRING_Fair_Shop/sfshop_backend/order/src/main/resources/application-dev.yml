@@ -1,0 +1,10 @@
+
+
+
+server:
+  port: 39081
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:30861/eureka/

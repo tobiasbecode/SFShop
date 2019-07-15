@@ -1,0 +1,37 @@
+#Application name
+spring:
+  application:
+    name: rservice
+
+#Server Port - Tomcat
+server:
+  port: 8751
+
+  #Hibernate
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+
+  #Database
+  data:
+    mongodb:
+      port: 27017
+      host: mongo
+      database: spring5shop-rating-db
+#Eureka
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-naming-server:8761/eureka/
+  instance:
+    hostname: rating
+
+#Oauth2
+security:
+  oauth2:
+    resource:
+      token-info-uri: http://oauth2:8283/oauth/check_token
+    client:
+      client-id: rating
+      client-secret: test

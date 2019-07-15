@@ -1,0 +1,159 @@
+<meta name="robots" content="noindex, nofollow" />
+<div class="container-fluid">
+  <div class="row" style="height: 80px">
+    <!-- brand -->
+    <a class="navbar-brand"><img src="{{ logo }}" alt="Logo"/></a>
+  </div>
+  <div class="row">
+    <nav class="navbar navbar-default " style="background: rgb(255, 255, 255)">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle"
+            data-toggle="collapse"
+            data-target="#myNavbar2"
+          >
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div
+          class="collapse navbar-collapse"
+          id="myNavbar2"
+          style="background: rgb(255, 255, 255)"
+        >
+          <ul class="nav navbar-nav">
+            <li>
+              <a
+                style="color: black"
+                routerLink="/"
+                appHighlight
+                style="cursor:pointer"
+                >Home</a
+              >
+            </li>
+            <li class="active"><a>Kategorien: </a></li>
+            <li>
+              <a
+                style="color: black"
+                appHighlight
+                style="cursor:pointer"
+                routerLink="/categories/coffee"
+                >Kaffee</a
+              >
+            </li>
+            <li>
+              <a
+                style="color: black"
+                appHighlight
+                style="cursor:pointer"
+                routerLink="/categories/honey"
+                >Honig</a
+              >
+            </li>
+            <li>
+              <a
+                style="color: black"
+                appHighlight
+                style="cursor:pointer"
+                routerLink="/categories/chocolate"
+                >Schokolade</a
+              >
+            </li>
+            <li   style="color: black">
+              <a
+                style="color: black"
+                appHighlight
+                style="cursor:pointer"
+                routerLink="/categories/tee"
+                >Tee</a
+              >
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <!-- Info Login -->
+            <li class="nav-item active">
+              <p
+                style="text-align:center; margin-top: 16px; font-family: Arial, Helvetica, sans-serif"
+                *ngIf="isAuthenticated"
+              >
+                Angemeldet als
+                <span class="badge badge-success">{{ username }}</span>
+              </p>
+            </li>
+
+            <!-- dropdown account-->
+
+            <li class="nav-item dropdown">
+              <a
+             
+                class="dropdown-toggle"
+                data-toggle="dropdown"
+                role="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+        
+                >Account <span class="caret"></span>
+                <span class="glyphicon glyphicon-user"></span
+              ></a>
+
+              <ul
+                class="dropdown-menu"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <li>
+                  <a
+                    routerLinkActive="active"
+                    routerLink="/auth"
+                    *ngIf="!isAuthenticated"
+                    >Login</a
+                  >
+                </li>
+                <li>
+                  <a
+                    *ngIf="isAuthenticated"
+                    (click)="onLogout()"
+                    style="cursor: pointer"
+                    >Logout</a
+                  >
+                </li>
+                <li role="separator" class="divider"></li>
+
+                <li><a routerLink="/shopping-cart">Einkaufswagen</a></li>
+
+                <li role="separator" class="divider"></li>
+                <li>
+                  <a
+                    style="color: black"
+                    routerLink="/product-new"
+                    appHighlight
+                    style="cursor:pointer"
+                    *ngIf="isAdmin"
+                    >Produktverwaltung</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <!-- shopping cart -->
+
+            <li
+              appHighlight
+              routerLink="/shopping-cart"
+              style="height: 35px; cursor: pointer;"
+            >
+              <img
+                src="{{ cartSymbol }}"
+                alt="cartSymbol"
+                style="height: 35px; cursor: pointer;"
+                routerLink="/shopping-cart"
+              />
+              Einkaufswagen
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
